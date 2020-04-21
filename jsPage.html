@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<title>JavaScript</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="images/web_dev_logo.png" >
+<link rel="stylesheet" href="css/htmlPage.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+<!-- Load this script in the head as we need to use jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/covidTracker.js" async></script>
+
+
+<script>
+    function clearBox(elementID) {
+        document.getElementById(elementID).innerHTML = "";
+    }
+</script>
+
+
+</head>
+<body>
+    
+    <script>
+        $(document).ready(function(){
+            $('button.myBtn').click(function() {
+                $('button.myBtn').removeClass('clicked');
+                $('button.myBtn').addClass('unclicked');
+                $(this).removeClass('unclicked')
+                $(this).addClass("clicked");
+            });
+        });
+    </script>
+
+    <!-- Navigation Bar -->
+    <div class="nav_area">
+        <div class="inner_nav">
+            <div class="logo_container">
+                <h1>A<span>S</span></h1>
+            </div>
+
+                <ul class="nav">
+                    <!-- Relative linking used here instead of file paths -->
+                    <a href="index.html"><li>HOME</li></a>
+                    <a  href="htmlPage.html"><li>HTML</li></a>
+                    <a href="cssPage.html"><li>CSS</li></a>
+                    <a class="activeNav" href="jsPage.html"><li>JAVASCRIPT</li></a>
+                    <a href="about.html"><li>ABOUT</li></a>
+
+                </ul>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header_container">
+            <h1>JavaScript Evolution and Purpose</h1>
+            <line></line>
+            <p>
+                JavaScript (JS) is a scripting language that is known as the three, core languages to 
+                build web applications and was created in 1995 by Brendan Eich during his time at Netscape. 
+                It has gained a lot of popularity over the years and has added functionality. It has allowed 
+                uses to interact with the content to make the experience more enjoyable. JS works by 
+                executing functions on the client side but the introduction of Node.js has enabled to be 
+                executed on servers. These functions are prototype based which means it's a multiparadigm 
+                language. JavaScript supports object-oriented programming, imperative and functional programming 
+                styles (cited from 
+                <a style="color: #1abc9c; font-style: italic; font-weight: bold;"
+                    href="http://teaching.csse.uwa.edu.au/units/CITS3403/lectures/05Javascript.pdf" 
+                    target="_blank">
+                    style
+                </a>
+                ). 
+            </p>
+        </div>
+    </div>
+
+
+<!-- The flexible grid (content) -->
+<div class="body_container">
+
+    <div class="side">
+        <div class="buttons">
+            <button class="myBtn unclicked" id="PUButton">Purpose & Uses</button><br><br>
+            <button class="myBtn unclicked" id="HistoryButton">Brief History</button><br><br>
+            <button class="myBtn unclicked" id="AppButton">COVID-19 Tracker</button>
+
+        </div>
+        
+    </div>
+
+    <div id="PU" class="main">
+        <h1>Purpose & Uses</h1>
+        <p>
+            Computers used to be much slower and browsers and experienced lag during web browsing 
+            on servers. Along with the expense of hosting files, this led most web developers to 
+            believe that JavaScript was a terrible idea. JavaScript changed the definition of web 
+            browsing and is executed on the user's computer when they access the page (client-side). 
+            This made sites more responsive on the user end and provided less traffic and processing 
+            strain on the server. Nowadays, computers are much faster and bandwidth is considered to 
+            be less cheaper which negates the downsides of JavaScript.
+        </p>
+
+        <p>
+            JavaScript can be used in a various scenario but is commonly utilised as a front-end web development tool. 
+            Some of uses and benefits include:
+        </p>
+
+        <div class="main_inside">
+            <div class="column">
+                <ul style="padding: 0px 20px 0px 100px">
+                    <li>
+                        Website Development and Applications
+                    <li>
+                        Server Applications using Node.js (applications distributed efficiently over the systems with the help of a server)
+                    <li>
+                        Graphics on webpages including 2D and 3D shapes can be displayed (pie-chart shown under the COVID-19 Tracker)
+                    </li>
+                    <li>
+                        Supports a lot of frameworks such as JQuery, Node, Angular, React
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    
+    </div>
+
+    <div id="History" class="main">
+        <h1>
+            Brief History of JavaScript
+        </h1>
+
+        <p>
+            The decade of 1990 was an important time for the internet to flourish. While Netscape (Netscape Navigator) and Microsoft 
+            (Internet Explorer) were going head to head with their browsers, Brendan developed the scripting language, Mocha, in 10 days. 
+            This immediately became known as LiveScript and later, JavaScript.
+        </p>
+
+        <p>
+            JavaScript rapidly grew which meant that it needed to be correctly maintained and developed. For this, Netscape assigned an 
+            organisation to standardise computing known European Computer Manufacturers Association (
+                <a style="color: #1abc9c; font-style: italic; font-weight: bold;"
+                    href="https://en.wikipedia.org/wiki/ECMAScript" 
+                    target="_blank">
+                    ECMA
+                </a>
+            ) in 1995. The ECMA specifications were labelled ECMA-262 and ECMAScript languages included JavaScript, JScript, 
+            and ActionScript.
+        </p>
+
+        <p>
+            These first ECMA script was released in 1997 included many specifications such as generators, iterators and destructuring assignments 
+            but a year later ECMA Script (ES) 2 and 3 were introduced. ECMA3 was introduced in 2000 added features such as regular expression, 
+            exception handling features and strict Boolean comparison operator ('==='). This opeator has been used to in CODVID-19 Tracker when we 
+            compare the country typed to the country data in the JSON file.
+        </p>
+
+        <p>
+            This quickly changed as we Jesse Garett's paper about Ajax in 2005 about how it dramatically improved user experience by allowing web pages 
+            to feel easier to navigate. This paper is one of the founding backbones of the JavaScript community. The community responded with large and 
+            popular JavaScript frameworks and libraries, such as Dojo and Mootools and jQuery.
+        </p>
+
+        <p> ES4 was abandoned and ES3 was renamed to ES5 in 2009 which included features such as parsing JSON files (shown in COVID Tracker). During this 
+            time, Node.js was another framework environment enabling JavaScript to be executed without a browser.
+        </p>
+        <p>
+            In 2015, ES6 was released but was later, renamed to ES2015. This naming pattern still exists today for latest releases of java script standard. 
+            This introduced to <span>let</span> and <span>const</span> variable types which is made it easier for to track the names and values of different 
+            variables.
+        </p>
+
+        <p>
+            Today, the latest script we are currently using is ES2019 released in June 2019. New features such as <span>asynchronous iterators</span>, 
+            <span>asynchronous generators</span>, and new <span>regular expression</span> have been introduced. JavaScript supports a variety of frameworks 
+            and is still currently being used in tech-leading companies such as Google, Facebook, Microsoft and many more.
+        </p>
+    </div>
+
+    <div id="App" class="main">
+        <h1>COVID-19 Tracker</h1>
+        <p>
+            This application allows the user to input a country of their choice and outputs a visualisation regarding the 
+            current pandemic situation in real time. COVID-19 Tracker is achieved using Asynchronous JavaScript And XML (AJAX) 
+            and Document Object Model (DOM) manipulation. When the country that is typed is submitted, it makes to a request 
+            to the API with this 
+            <a style="color: #1abc9c; font-style: italic; font-weight: bold;"
+                href="https://api.covid19api.com/summary" 
+                target="_blank">
+                API
+            </a>.
+        </p>
+
+        <p>
+            After it makes the HTTP Request, we receive a JSON file which contains objects of each country containing the 
+            corresponding data. This data is processed in JavaScript and accordingly plots the visualisations after the computation 
+            is completed.
+        </p>
+
+        <p><span>Enter the name of the country to discover the COVID-19 status.</span></p>
+
+        <div class="code_container">
+
+            <input style="padding: 10px; text-align: center; border: solid 2px #1aa4bc;" type="text" id="country">
+            <button id="sendInput" class="showCodeButton" type="button" onclick="clearBox('pieChartNew');getCovidData(getCountryData)">Status</button>
+
+        </div>
+
+        <!-- <div id="table_container">
+            <table id="displayData"></table>
+        </div> -->
+        <div class="main_inside">
+
+            <div class="column">
+                <p><b id="TotalTitle"></b></p>
+                <div style="padding-right: 2px;" id="pieChartTotal"></div>
+            </div>
+            <div class="column">
+                <p><b id="NewTitle"></b></p>
+                <div id="pieChartNew"></div>
+            </div>
+            
+        </div>
+        
+    </div>
+
+        
+
+</div>
+
+
+<script>
+    jQuery(function(){
+       jQuery('#PUButton').click();
+    });
+</script>
+
+<script>
+    $("#PUButton").on('click', function() {
+        $("#PU").show();
+        $("#History,#App").hide();
+    });
+
+    $("#HistoryButton").on('click', function() {
+        $("#History").show();
+        $("#PU,#App").hide();
+    });
+
+    $("#AppButton").on('click', function() {
+        $("#App").show();
+        $("#PU, #History").hide();
+    });
+
+</script>
+
+<!-- Footer -->
+<div class="footer">
+    <h1> </h1>
+
+</div>
+
+</body>
+</html>

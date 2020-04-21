@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <!-- Page title -->
+        <title>CSS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Page Logo -->
+        <link rel="icon" type="image/png" href="images/web_dev_logo.png" >
+        <!-- Page Stylesheet -->
+        <link rel="stylesheet" href="css/htmlPage.css">
+
+        <!-- Load this script in the head as we need to use jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- This script changes the colours of the side when clicked -->
+        <script>
+            $(document).ready(function(){
+                $('button.myBtn').click(function() {
+                    $('button.myBtn').removeClass('clicked');
+                    $('button.myBtn').addClass('unclicked');
+                    $(this).removeClass('unclicked')
+                    $(this).addClass("clicked");
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+
+    
+    <!-- Navigation Bar -->
+    <div class="nav_area">
+        <div class="inner_nav">
+            <div class="logo_container">
+                <h1>A<span>S</span></h1>
+            </div>
+
+                <ul class="nav">
+                    <!-- Relative linking used here instead of file paths -->
+                    <a href="index.html"><li>HOME</li></a>
+                    <a href="htmlPage.html"><li>HTML</li></a>
+                    <a class="activeNav" href="cssPage.html"><li>CSS</li></a>
+                    <a href="jsPage.html"><li>JAVASCRIPT</li></a>
+                    <a href="about.html"><li>ABOUT</li></a>
+
+                </ul>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header_container">
+            <h1>CSS Purpose and Motivation</h1>
+            <line></line>
+            <p>
+                Cascading Style Sheets (CSS) is a declarative programming language that has revolutionized the way we 
+                format webpages effectively and efficiently. It has allowed website developers to describe semantics 
+                of a document, written in HTML mark-up language, separately to the document presentation. Hakon Wium Lie 
+                introduced the concept of CSS in October 1994 while working with Tim Berners at CERN. Bert Bos was involved 
+                with building a highly customisable browser with style sheets known as Argo and joined Hakon. Both of their 
+                proposals differ from CSS used today but the initial purpose and motivation is still present.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Body of the webpage -->
+    <div class="body_container">
+
+        <div class="side">
+            <div class="buttons">
+                <button class="myBtn unclicked" id="PMButton">Purpose & Motivation</button><br><br>
+                <button class="myBtn unclicked" id="AdvButton">Advantages</button><br><br>
+                <button class="myBtn unclicked" id="CSS1Button">CSS 1</button><br><br>
+                <button class="myBtn unclicked" id="CSS2Button">CSS 2 / 2.1</button><br><br>
+                <button class="myBtn unclicked" id="CSS3Button">CSS 3</button>
+
+            </div>
+            
+        </div>
+
+        <script>
+            function showCode(elementID) {
+                var x = document.getElementById(elementID);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    
+                } else {
+                    x.style.display = "none";
+                }
+            }
+            
+        </script>
+
+        <script>
+            $(document).ready( function () {
+                $("#NoCSS").click( function() {
+
+                    $('link[rel="stylesheet"]').remove();
+
+                    $("#NoCSS").attr('disabled', true);
+                    $("#WithCSS").attr('disabled', false);
+                });
+
+                $("#WithCSS").click( function() {
+
+                    $('head').append('<link rel="stylesheet" href="css/htmlPage.css">');
+
+                    $("#NoCSS").attr('disabled', false);
+                    $("#WithCSS").attr('disabled', true);
+                });
+
+            });
+        </script>
+
+        <div id="PM" class="main">
+            <h1>Purpose & Motivation</h1>
+            <p>
+                CSS allows each webpage to have a distinctive feel and prevents it from looking the same. Press the 
+                "No CSS" button to see this webpage with no CSS applied and the reset button 
+            </p>
+
+            <div class="code_container">
+                <button id="NoCSS" class="showCodeButton">No CSS</button>
+                <button id="WithCSS" class="showCodeButton" onclick="putBackCSS()">Reset CSS</button>
+            </div>
+
+            <p>
+                The primary purpose of CSS assists to keeping the information content separate from the details of 
+                how to display it. It enabled the ability to cascade styles. Cascading is the idea of inheriting 
+                and overwriting other styles that was previously declared. It follows a hierarchy known as specificity 
+                and which enables the browser to determine which style property to use.
+            </p>
+
+            <p>
+                Early versions of styling in HTML documents addressed many complications. Some of these issues that 
+                motivated the creation of CSS which includes:
+            </p>
+
+            <div class="main_inside">
+                <div class="column">
+                    <ul style="padding: 0px 20px 0px 100px;">
+                        <li>Reduced Browser performance</li>
+                        <li>Lowering programming productivity</li>
+                        <li>Inflexible (Difficult to make changes/design, support user customisation and multiple devices)</li>
+                        <li>Poor accessibility</li>
+                    </ul>
+
+                </div>
+            </div>
+        
+        </div>
+
+        <div id="Adv" class="main" >
+            <h1>Advantages of CSS</h1>
+
+            <p>
+                The introduction of CSS opened many opportunities a pleasant experience for users and developers. 
+                Some advantages are listed below:
+            </p>
+
+            <div class="main_inside">
+                <div class="column">
+                    <ul style="padding: 0px 20px 0px 100px">
+                        <li>
+                            <b>Modularity of Code - </b>
+                            set of rules can be reused in different HTML pages. It is easier to maintain and update
+                            and to change the visual style of an element across the whole site.
+                        <li>
+                            <b>Reloads Faster - </b>
+                            we only need to load the stylesheet once for all the pages. 
+                            This avoids content and style information to intermingle.
+                        <li>
+                            <b>Cleaner HTML - </b>
+                            code is not polluted with stylization attributes. As a result, HTML is more readable and 
+                            easier to understand both for humans and browser.
+                        </li>
+                        <li>
+                            <b>Viewing Options - </b>
+                            CSS allows media queries to be implement in stylesheets which allows the same mark-up
+                            language to viewed on different devices and screensizes. This makes the wepage more dynamic 
+                            and versatile.
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="CSS1" class="main">
+            <h1>CSS 1</h1>
+
+            <p>
+                The major benefit now that they can change the properties of CSS without having to change properties 
+                of CSS without having to alter the HTML. Microsoft Internet Explorer became the first browser to 
+                support CSS1 and provided support including:
+            </p>
+
+            <div class="main_inside">
+                <div class="column">
+                    <ul style="padding: 0px 20px 0px 100px">
+                        <li>
+                            Font Properties such as type and emphasis
+                        <li>
+                            Foreground and background (colors/images)
+                        <li>
+                            Margins, borders and padding (Box Model)
+                        </li>
+                        <li>
+                            Unique identification and classification of group of attributes
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+            
+            <p>
+                After this release, the Formatting Properties Working Group was formed by the 
+                W3C and focused on the 'Cascading Style Sheets'.
+            </p>
+
+        </div>
+
+        <div id="CSS2" class="main">
+            <h1>CSS 2 / 2.1</h1>
+            <p>
+                W3C officially released CSS 2 which introduced new features such as:
+            </p>
+
+            <div class="main_inside">
+                <div class="column">
+                    <ul style="padding: 0px 20px 0px 100px">
+                        <li>
+                            Different positioning (absolute, relative, fixed) of elements
+                        <li>
+                            Media types (@media rule which allowed for formatting on different screen sizes)
+                        <li>
+                            Z-index (describes the stack order of an element)
+                        </li>
+                        <li>
+                            Aural Style Sheets
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <p>
+                Opera was a new browser also released with this version. CSS 2.1 was published by W3C during June, 
+                2011 which aimed to fix bugs and aligned the capabilities with browser functions.
+            </p>
+
+            <p>
+                <span>Media queries</span> revolutionised the todays responsive web design and has become the standard. This has been implemented in this webpage. 
+                To notice the effect, <span>rescale the browser to decrease the width</span> and notice the layout shift to accompany the new change. The power of this 
+                has changed the way view webpages on different devices and screen size.
+            </p>
+
+            <p>
+                Another key feature that was introduced was the <span>hover</span> or mouseover option. This allowed users to 
+                hover their cursor element to change its color. This has been implemented through out this webpage and 
+                can be experienced by <span>taking the cursor over the side buttons or the navigation bar</span>.
+            </p>
+
+        </div>
+
+        <div id="CSS3" class="main">
+            <h1>CSS 3</h1>  
+            <p>
+                Some of the earliest drafts of CSS3 began in 1999. This version of CSS is current version 
+                which broke down the capabilities into four modules known as colour, selectors level 3, 
+                namespaces and media queries was developed and released from 2011 to 2012. These are displayed throughout the 
+                wbsite and can be found in the CSS file.
+            </p>
+
+            <div class="main_inside">
+                <div class="column">
+                    <ul style="padding: 0px 20px 0px 100px">
+                        <li>
+                            Simple Selector Form - select which element to style
+                        <li>
+                            Class Selector - all the elements with a attribute class captures the CSS from the file
+                        <li>
+                            ID Selector - select an element by ID. This is demonstrated through the side buttons. When a 
+                            side button with a particular ID is clicked, it will display that element
+                        </li>
+                        <li>
+                            Pseudo Classes - this includes :hover or :focus. Hover has been discussed in the previous CSS tab
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            jQuery(function(){
+            jQuery('#PMButton').click();
+            });
+        </script>
+
+        <script>
+            $("#PMButton").on('click', function() {
+                $("#PM").show();
+                $("#Adv,#CSS1,#CSS2, #CSS3").hide();
+            });
+        
+            $("#AdvButton").on('click', function() {
+                $("#Adv").show();
+                $("#PM,#CSS1,#CSS2, #CSS3").hide();
+            });
+        
+            $("#CSS1Button").on('click', function() {
+                $("#CSS1").show();
+                $("#PM,#Adv,#CSS2, #CSS3").hide();
+            });
+        
+            $("#CSS2Button").on('click', function() {
+                $("#CSS2").show();
+                $("#PM,#Adv,#CSS1, #CSS3").hide();
+            });
+        
+            $("#CSS3Button").on('click', function() {
+                $("#CSS3").show();
+                $("#PM,#Adv,#CSS1, #CSS2").hide();
+            });
+        </script>
+
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+    <h2> </h2>
+    </div>
+
+    </body>
+</html>

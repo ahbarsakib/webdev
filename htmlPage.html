@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+    <head>
+        <!-- Page title -->
+        <title>HTML</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Page Logo -->
+        <link rel="icon" type="image/png" href="images/web_dev_logo.png" >
+        <!-- Page Stylesheet -->
+        <link rel="stylesheet" href="css/htmlPage.css">
+
+        <!-- Load this script in the head as we need to use jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- This script changes the colours of the side when clicked -->
+        <script>
+            $(document).ready(function(){
+                $('button.myBtn').click(function() {
+                    $('button.myBtn').removeClass('clicked');
+                    $('button.myBtn').addClass('unclicked');
+                    $(this).removeClass('unclicked')
+                    $(this).addClass("clicked");
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+
+    
+    <!-- Navigation Bar -->
+    <div class="nav_area">
+        <div class="inner_nav">
+            <div class="logo_container">
+                <h1>A<span>S</span></h1>
+            </div>
+
+                <ul class="nav">
+                    <!-- Relative linking used here instead of file paths -->
+                    <a href="index.html"><li>HOME</li></a>
+                    <a class="activeNav" href="htmlPage.html"><li>HTML</li></a>
+                    <a href="cssPage.html"><li>CSS</li></a>
+                    <a href="jsPage.html"><li>JAVASCRIPT</li></a>
+                    <a href="about.html"><li>ABOUT</li></a>
+
+                </ul>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header_container">
+            <h1>HTML History and Evolution</h1>
+            <line></line>
+            <p>
+                Hypertext Markup Language also known as HTML has developed dramatically over the past 30 years and has 
+                considered to be the standard across all platforms including web pages and applications. 
+                Tim Berners-Lee invented the world wide web in 1989. He was working a nuclear physicist at European Organisation 
+                for Nuclear Research (CERN) and proposed a new hypertext system to share information and documents with physicists 
+                around the world and collaborate with each other. The original document was initially text based with HTML tags 
+                and was published in 1991 which can be found.
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Body of the webpage -->
+    <div class="body_container">
+
+        <div class="side">
+            <div class="buttons">
+                <button class="myBtn unclicked" id="HTML1Button">HTML 1.0</button><br><br>
+                <button class="myBtn unclicked" id="HTML2Button">HTML 2.0</button><br><br>
+                <button class="myBtn unclicked" id="HTML3Button">HTML 3.2</button><br><br>
+                <button class="myBtn unclicked" id="HTML4Button">HTML 4.01</button><br><br>
+                <button class="myBtn unclicked" id="HTML5Button">HTML 5</button>
+
+            </div>
+            
+        </div>
+
+        <script>
+            function showCode(elementID) {
+                var x = document.getElementById(elementID);
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    
+                } else {
+                    x.style.display = "none";
+                }
+            }
+            
+        </script>
+
+        <div id="HTML1" class="main">
+            <h1>HTML 1.0</h1>
+            <p>This version was officially converted into a standard by the IETF (Internet Engineering Task Force) in 1993. The 
+                main purpose was to link texts together such as essays and reports to other texts. HTML 1.0 had very limited 
+                capability which contained approximately 20 elements. Some of these are still being utilised in the current HTML5 
+                which include <tag>HEAD</tag>, <tag>TITLE</tag> and <tag>BODY</tag> which are also present 
+                in this website.
+            </p>
+
+            <p>Anchor tags (<tag><b>A</b></tag>) is used to refer to other documents which is described in the 
+                attribute “HREF” which is hosted at a particular domain. This 
+                <a style="color: #1abc9c; font-style: italic; font-weight: bold;"
+                    href="http://info.cern.ch/hypertext/WWW/TheProject.html" 
+                    target="_blank">
+                    website 
+                </a>
+                is the first document to be published with HTML 1.0 and is also an example of an anchor tag.
+            </p>
+
+            <img id="anchorCode" style="display: none;" src="images/anchorCode.png" alt="AnchorCode" width="100%">
+
+            <div class="code_container">
+                <button id="anchor" class="showCodeButton" onclick="showCode('anchorCode')">Show Code</button>
+            </div>
+
+
+            <p>Lists are very helpful in order to display items in an unordered (<tag>ul</tag>) or an ordered (<tag>ol</tag>) manner. The unordered 
+                lists were referred to as “multiline paragraphs separated by some white space” and are represented as bullet points while ordered 
+                lists are represented by numbers as shown below.
+            </p>
+            
+
+            <div class="main_inside">
+                <div class="column">
+                    <h2>Unordered List</h2>
+                    <ul style="padding-bottom: 20px;">
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                    </ul>
+
+                    <img id="ulCode" style="display: none;" src="images/ulCode.png" alt="ListCode" width="100%">
+                   
+
+                    <div class="code_container">
+                        <button id="ulList" class="showCodeButton" onclick="showCode('ulCode')">Show Code</button>
+                    </div>
+
+                </div>
+                <div class="column">
+                    <h2>Ordered List</h2>
+                    <ol style="padding-bottom: 20px;">
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                    </ol>
+
+                    <img id="olCode" style="display: none;" src="images/olCode.png" alt="ListCode" width="100%">
+
+                    <div class="code_container">
+                        <button id="olList" class="showCodeButton" onclick="showCode('olCode')">Show Code</button>
+                    </div>
+                </div>
+            </div>
+
+            <p>Users immediately began to realize the need to display icons and figures on a webpage. They also wanted to 
+                alter page background, change the type of fonts and include tables and forms.
+            </p>
+        
+        </div>
+
+        <div id="HTML2" class="main" >
+            <h1>HTML 2.0</h1>
+            
+            <img src="images/TimBerners.jpg" alt="TimBerners" height="300" style="float: right; padding: 20px;">
+            <p>This version of HTML was released in 1995 and was a significant improvement from the previous version. It 
+                added new features such as changing the page background, alter fonts and include tables, forms and images 
+                into the webpage. The <tag>IMG</tag> tag allowed users to share pictures such as the picture of Tim Berners 
+                Lee shown as follows.
+            </p>
+
+            <img id="imgCode" style="display: none;" src="images/imgCode.png" alt="ImageCode" width="100%">
+
+            <div class="code_container">
+                <button id="imgButton" class="showCodeButton" onclick="showCode('imgCode')">Show Code</button>
+            </div>
+            
+            <p>A <tag>TABLE</tag> tag is helps us to organise information into a table using <tag>TR</tag> to insert table rows 
+                and <tag>TD</tag> tag is used to insert data into the table cell.
+            </p>
+            
+            <p>Forms are an interactive way on the website and is mainly used to user input. Some realistic application of 
+                this includes user login, online quizzes and many more. This can also be utilised in a wat to contact the 
+                web developer or author.
+            </p>
+
+            <p>During this time, an organisation was created known as The World Wide Web Consortium (W3C) which was responsible for developing web standards. ‘Netscape Navigator’ was a browser created by Netscape which supported many functionalities using Netscape extension tags. These tags looked bad on different browsers and W3C needed to develop their web standard.</p>
+        
+        </div>
+
+        <div id="HTML3" class="main">
+            <h1>HTML 3.2</h1>
+            
+            <p>
+                W3C dropped their work on HTML3 which was to build an unattainable version of the language and began development 
+                on HTML 3.2. The goal of this version was to harmonize content providers and browser developers and was released 
+                in 1996. It provided backwards compatibility with the existing HTML 2.0 standard while deploying features such as 
+                applets, divisions and style.
+            </p>
+
+            <p>Applets are discontinued in the current version but has been replaced with the <tag>EMBED</tag> tag. Divisions 
+                are represented by <tag>div</tag> and are extensively utilised in the current versions. A div can be 
+                described as a container which can contain other divs or elements. The navigation bar on this website is created 
+                from multiple divisions where the logo is a div inside a bigger div.
+            </p>
+
+            <p>
+                This version also introduced text wrap around images which allowed users to display articles with pictures in 
+                a much more desirable way. This has been implemented under the tab HTML 2.0.
+
+            </p>
+
+        </div>
+
+        <div id="HTML4" class="main">
+            <h1>HTML 4.01</h1>
+            <p>HTML 4.01 was a redesign of HTML 3.2 which aimed to remove the clutter generated from previous versions. This 
+                version was created in 1999 which included CSS explained in the
+                <a style="color: #1abc9c; font-style: italic; font-weight: bold;"
+                    href="cssPage.html">next webpage
+                </a>
+                . This allowed for style sheets which allowed easy access to change the text, colour, font and background. 
+                CSS made it more versatile to change this options in a separate file. The background of this webpage is an 
+                image behind the text.
+            </p>
+
+            <p>
+                It added more support for multimedia options, scripting languages and made documents become more accessible 
+                for people with disabilities. It only supported multimedia elements from third party plugins such as 
+                Silver Light and Flash to play audio/video. HTML 4.01 cant handle inaccurate syntax
+            </p>
+
+            <p>
+                HTML 4.0.1 marked a “farewell” stance of the W3C. They were done quarrelling and fighting. This final 
+                version opened the HTML language up for other languages, which brought so many spin-offs, that the web 
+                entered its Dark Age.
+            </p>
+
+        </div>
+
+        <div id="HTML5" class="main">
+            <h1>HTML 5</h1>  
+            <p>
+                This version was released officially in 2014 and was a wake-up call for everyone involved in the web 
+                development. W3C was focusing on another language known as XHTML which caused the delay. After long 
+                controversies with different parties, W3C declared the HTML 5 as the new standard and using it is a 
+                commitment.
+            </p>
+
+            <p>
+                They introduced the more multimedia tags such as <tag>canvas</tag>, <tag>audio</tag> and <tag>video</tag>.
+                This allowed for more specific content to be shared.
+            </p>
+
+            <p>
+                Many browsers such as Google Chrome, Mozilla Firefox, Opera, Safari and many more have started to 
+                support HTML 5 specification. It makes use of CSS for styling and Java script for manipulating the document 
+                in an effective and efficient way.
+            </p>
+
+        </div>
+
+        <script>
+            jQuery(function(){
+            jQuery('#HTML1Button').click();
+            });
+        </script>
+
+        <script>
+            $("#HTML1Button").on('click', function() {
+                $("#HTML1").show();
+                $("#HTML2,#HTML3,#HTML4, #HTML5").hide();
+            });
+        
+            $("#HTML2Button").on('click', function() {
+                $("#HTML2").show();
+                $("#HTML1,#HTML3,#HTML4, #HTML5").hide();
+            });
+        
+            $("#HTML3Button").on('click', function() {
+                $("#HTML3").show();
+                $("#HTML1,#HTML2,#HTML4, #HTML5").hide();
+            });
+        
+            $("#HTML4Button").on('click', function() {
+                $("#HTML4").show();
+                $("#HTML1,#HTML2,#HTML3, #HTML5").hide();
+            });
+        
+            $("#HTML5Button").on('click', function() {
+                $("#HTML5").show();
+                $("#HTML1,#HTML2,#HTML3, #HTML4").hide();
+            });
+        </script>
+
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+    <h2> </h2>
+    </div>
+
+    </body>
+</html>

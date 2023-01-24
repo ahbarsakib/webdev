@@ -1,40 +1,36 @@
 
-function getCovidData(callBackCountry) {
+var currentCountry;
+
+function getCovidData(callback) {
     const url = "https://api.covid19api.com/summary"
     let xhttp = new XMLHttpRequest();
 
+    xhttp.open("GET", url, true);
+
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200 && this.statusText=="OK") {
-            callBackCountry(xhttp);
+        if (this.readyState == 4 && this.status == 200) {
+            callback(xhttp);
         }
     }
 
-    xhttp.open("GET", url, true);
     xhttp.send();
 
 }
 
-var currentCountry;
-
-
 function getCountryData(xhttp){
+    
+    countryFound = false;
+    noNewCases = false;
 
     const country  = document.getElementById("country").value;
-    const display = document.getElementById("displayData")
     
     let obj = JSON.parse(xhttp.response);
 
     let countries = obj.Countries;
 
     let count = Object.keys(countries).length;
-
-    countryFound = false;
-    noNewCases = false;
-
     let totalCountryData = [['Status', 'Number']];
     let newCountryData = [['Status', 'Number']];
-
-
 
     for (i = 0; i < count; i++ ) {
         let currentCountry = countries[i].Country;
@@ -79,8 +75,6 @@ function getCountryData(xhttp){
             newCountryData
         );
         
-
-
         var options = { 
             chartArea: {left:0, 'width': '80%', 'height': '80%'},
             legend: {
@@ -89,7 +83,6 @@ function getCountryData(xhttp){
             },
             sliceVisibilityThreshold:0
         };
-
 
         var totalContainer = document.getElementById('pieChartTotal');
         var totalChart = new google.visualization.PieChart(totalContainer);
@@ -104,9 +97,6 @@ function getCountryData(xhttp){
 
 }
 
-
-
-
 function createNode(e) {
     return document.createElement(e);
 
@@ -116,22 +106,17 @@ function append(parent, e) {
     return parent.appendChild(e);
 }
 
-
-
-
 function generateChart() {
 
     console.log(countryData)
     
     // Create and populate the data table.
     var data = google.visualization.arrayToDataTable(countryData);
-  
-  
+
     // Optional; add a title and set the width and height of the chart
     var options = {'title':'Cases for Country', 'width':550, 'height':400, sliceVisibilityThreshold:0};
   
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
-    
 }

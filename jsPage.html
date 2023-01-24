@@ -18,8 +18,10 @@
 
 
 <script>
-    function clearBox(elementID) {
-        document.getElementById(elementID).innerHTML = "";
+    function clearBox(elementIDs) {
+        elementIDs.forEach(element => {
+            document.getElementById(element).innerHTML = "";
+        });
     }
 </script>
 
@@ -209,18 +211,18 @@
         <div class="code_container">
 
             <input style="padding: 10px; text-align: center; border: solid 2px #1aa4bc;" type="text" id="country">
-            <button id="sendInput" class="showCodeButton" type="button" onclick="clearBox('pieChartNew');getCovidData(getCountryData)">Status</button>
+            <button id="sendInput" class="showCodeButton" type="button" onclick="clearBox(['pieChartTotal', 'pieChartNew']);getCovidData(getCountryData)">Status</button>
 
         </div>
 
         <!-- <div id="table_container">
             <table id="displayData"></table>
         </div> -->
-        <div class="main_inside">
+        <div id="test", class="main_inside">
 
             <div class="column">
                 <p><b id="TotalTitle"></b></p>
-                <div style="padding-right: 2px;" id="pieChartTotal"></div>
+                <div id="pieChartTotal"></div>
             </div>
             <div class="column">
                 <p><b id="NewTitle"></b></p>
@@ -238,7 +240,7 @@
 
 <script>
     jQuery(function(){
-       jQuery('#PUButton').click();
+       jQuery('#AppButton').click();
     });
 </script>
 
